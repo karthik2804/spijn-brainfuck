@@ -1,0 +1,16 @@
+spin_version = "1"
+authors = ["karthik Ganeshram <karthik.ganeshram@fermyon.com>"]
+description = ""
+name = "spin-brainfuck"
+trigger = { type = "http", base = "/" }
+version = "0.1.0"
+
+
+[[component]]
+id = "brainfuck"
+source = "hello.wasm"
+[component.trigger]
+route = "/..."
+executor = { type = "wagi" }
+[component.build]
+command = "npx @surma/bfwasm --wasi -o hello.wasm index.bf"
